@@ -1,0 +1,77 @@
+﻿@page "/ListWord"
+@inherits ListWordBase
+
+<h3>Word List</h3>
+<hr />
+@if(Words == null)
+{
+	<p>loading...</p>
+}
+else
+{
+    <div class="form-group row">
+
+        <div class="col-sm-12">
+            <input class="form-control" style="margin: 10px 0;" type="text" @bind-value="SearchText" placeholder="type a word.." @bind-value:event="oninput"/>
+        </div>
+    </div>
+	<table class="table">
+    <thead>
+        <tr>
+            @*<th>Id</th>*@
+            <th>Word</th>
+            <th>Meaning</th>
+            <th></th>
+            <th></th>
+            @*<th>Action</th>*@
+        </tr>
+    </thead>
+    <tbody>
+        @if(SearchText != "")
+        {
+             @foreach (var word in FilteredWords)
+             {
+                if (word.EditState)
+                {
+                    <tr>
+                        @*<td>@word.Id</td>*@
+                        <td><input type="text" class="form-control" placeholder="Give the instance a name" @bind="@word.WordText" /></td>
+                        <td><input type="text" class="form-control" placeholder="Give the instance a name" @bind="@word.MeaningText" /></td>
+                        @*<td>@word.SentenceText</td>*@
+                        <td>
+                            <button type="button" class="btn btn-link" style="width:15px;" @onclick="() => Enable(false, word)">
+                                <span class="oi oi-x" aria-hidden="true"></span>
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-link" style="width:15px;" @onclick="() => EditWord(word)">
+                                <span class="oi oi-check" aria-hidden="true"></span>
+                            </button>
+                        </td>
+                    </tr>
+                }
+                else
+                {
+                    <tr>
+                        @*<td>@word.Id</td>*@
+                        <td>@word.WordText</td>
+                        <td>@word.MeaningText</td>
+                        @*<td>@word.SentenceText</td>*@
+                        <td>
+                            <button type="button" class="btn btn-link" style="width:15px;" @onclick="() => Enable(true, word)">
+                                <span class="oi oi-pencil" aria-hidden="true"></span>
+                            </button>
+                        </td> 
+                        <td>
+                            <button type="button" class="btn btn-link" style="width:25px;text-align: center;" @onclick="() => RemoveWord(word)">
+                                <img width="25" height="25" src="images/remove_1.svg" alt=""/>
+                            </button>
+                        </td>
+                    </tr>
+                }
+            }   
+        }
+            
+        </tbody>
+    </table>
+}

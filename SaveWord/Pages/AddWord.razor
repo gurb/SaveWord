@@ -1,0 +1,43 @@
+﻿@page "/addword"
+@using SaveWord.Data
+@inherits AddWordBase
+
+@*<EditForm Model="@Word" OnSubmit=@SubmitWord>*@
+<EditForm Model="@Word" Context=MyCurrentEditContext>
+    <h3>Add Word</h3>
+    <hr />
+    <div class="form-group row">
+        <label for="word" class="col-sm-2 col-form-label">
+            Word
+        </label>
+        <div class="col-sm-10">
+            <InputText id="word" class="form-control" placeholder="type word..." @bind-Value=Word.WordText />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="meaning" class="col-sm-2 col-form-label">
+            Meaning
+        </label>
+        <div class="col-sm-10">
+            <InputText id="meaning" class="form-control" placeholder="type definition of word..." @bind-Value=Word.MeaningText />
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-sm-12">
+            <input type="submit" @onclick="@(async () => await SubmitWord(MyCurrentEditContext))" class="btn btn-primary" style="width:100%;margin-top:20px;" value="Save" />
+        </div>
+    </div>
+
+    
+</EditForm>
+
+@if(ShowAddedNotification)
+{
+    <div class="alert alert-success" style="margin-top:20px;" role="alert">
+        Word is added..
+    </div>
+}
+
+
+

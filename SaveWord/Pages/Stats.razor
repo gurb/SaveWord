@@ -1,0 +1,22 @@
+﻿@page "/stats"
+@inherits StatsBase
+
+<h3>Stats</h3>
+<hr />
+<p role="status">Current count: @WordCounter</p>
+
+<p role="status">Tested Words Count: @TestedWords</p>
+<div class="progress">
+  <div class="progress-bar" role="progressbar" style="@($"width: {100.0 * TestedWords / WordCounter}%")" aria-valuenow="@TestedWords" aria-valuemin="0" aria-valuemax="@WordCounter"></div>
+</div>
+
+<p role="status">Correct Words Count: @CorrectCount</p>
+<p role="status">Wrong Words Count: @WrongCount</p>
+<div class="progress">
+  <div class="progress-bar bg-success" role="progressbar" style="@($"width: {100.0 * CorrectCount / CorrectCount+WrongCount}%")" aria-valuenow="@CorrectCount" aria-valuemin="0" aria-valuemax="@CorrectCount+@WrongCount"></div>
+  <div class="progress-bar bg-danger" role="progressbar" style="@($"width: {100.0 * WrongCount / CorrectCount+WrongCount}%")" aria-valuenow="@WrongCount" aria-valuemin="0" aria-valuemax="@CorrectCount+@WrongCount"></div>
+</div>
+
+
+
+
