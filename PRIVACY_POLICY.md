@@ -7,5 +7,7 @@ This application is not programmed to collect any personally identifiable inform
 If you have found a security vulnerability in the application that was not noticed by me, you can report it to me via my e-mail address. I can try to solve the issue quickly.
 
 Gürbüz Uğurgül
+
 Republic of Türkiye
+
 gurbuzugurgul@gmail.com
