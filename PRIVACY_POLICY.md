@@ -8,6 +8,6 @@ If you have found a security vulnerability in the application that was not notic
 
 Gürbüz Uğurgül
 
-Republic of Türkiye
+Turkey
 
 gurbuzugurgul@gmail.com
