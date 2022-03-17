@@ -36,11 +36,6 @@ public class WordService
         return _db.Delete(word);
     }
 
-	internal void AddWord(object model)
-	{
-		throw new NotImplementedException();
-	}
-
     public int GetTestedCount() 
     {
         return _db.Query<Word>("SELECT * FROM Word WHERE IsTested IS TRUE").Count;
