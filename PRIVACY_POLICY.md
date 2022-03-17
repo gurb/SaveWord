@@ -9,5 +9,7 @@ If you have found a security vulnerability in the application that was not notic
 I may update our Privacy Policy from time to time. Thus, you are advised to review this page periodically for any changes. I will notify you of any changes by posting the new Privacy Policy on this page.
 
 Gürbüz Uğurgül
-Republic of Türkiye
+
+Turkey
+
 gurbuzugurgul@gmail.com
